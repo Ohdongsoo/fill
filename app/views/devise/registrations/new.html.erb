@@ -1,0 +1,77 @@
+<html style="width:100%; height:100%">
+  <head>
+  <style>
+
+     body {
+    	background-color: #c9c9c9;
+      -webkit-background-size: 200%; 
+      -moz-background-size: 200%; 
+      -o-background-size: 200%; 
+      }
+    label{
+      font-size:15px;
+    }
+    body{
+      font-family:arial;
+    } 
+
+    </style>
+
+  </head>
+  <body>
+  <div class="container" style="background-color: white; padding-top: 2%">
+      <div class="col-md-6 col-md-offset-3">
+        
+    <h1 style="text-align:center; margin-bottom: 0px; color:#3e7fe8">FILL</h1>
+    <hr>
+    <h2><center>회원가입 정보 입력</center></h2>
+  
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    
+    <div class="field">
+      <%= f.label "이메일 주소" %>
+      <%= f.email_field :email, autofocus: true,  class: "form-control", placeholder: "E-mail" %><br>
+      
+      <%= f.label "비밀번호" %>
+      <%= f.password_field :password, autocomplete: "off",  class: "form-control", placeholder: "비밀번호(6자리 이상 입력해주세요.)" %><br>
+      <%= f.password_field :password_confirmation, autocomplete: "off",  class: "form-control", placeholder: "비밀번호 확인"  %>
+    </div>
+    <br>
+ 
+
+    <div class="field">
+      <%= f.label "이름" %>
+      <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "이름"  %><br>
+      
+      <%= f.label "생년월일" %>
+      <%= f.date_field :birth, autofocus: true, class: "form-control", placeholder: "생년월일"  %>
+    </div>
+    <br>
+    
+    <div class="field">
+      <%= f.label "연락처" %>
+      <%= f.phone_field :phone, autofocus: true, class: "form-control", placeholder: "연락처"  %><br>
+      
+      <%= f.label "거주 지역" %>
+      <%= f.text_field :reg, autofocus: true, class: "form-control", placeholder: "ex)경기-광주" %>
+    </div>
+    <br>
+
+    <div class="actions" style="float:center;">
+      <center><%= f.submit "회원가입 완료", class: "btn", style: "background-color: #3e7fe8; color:white;"  %>&nbsp;&nbsp; <a href="/users/sign_in"><button style="background-color: #3e7fe8; color:white;" class="btn">로그인으로 이동</button></a></center>
+       <br><br>
+    </div>
+ 
+
+
+      <br><br>
+
+  <% end %>
+  
+
+  </div>
+  </div>
+  </body>
+</html>  

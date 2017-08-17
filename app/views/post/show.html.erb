@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <style>
+      a:link{color:grey;}
+      
+    </style>
+  </head>
+<div class=container>
+<h1>경기</h1><hr>
+  <div class="container" style="border:1px solid #e8e5e5; background-color:white;">
+  
+    <p style="">
+    <div class="container">
+      <div>    
+        <h2 style="margin-top:0px;"><%= @show.title %></h2>
+        <h5 style="color:grey; padding-right:20px" align="right"><%= @show.user.name %>&nbsp;&nbsp;&nbsp;<%= "#{time_ago_in_words(@show.created_at)} 전" %>&nbsp;&nbsp;&nbsp; <%= "#{@show.unique_impression_count}명 읽음" %></h5>
+      </div>
+      <hr style="margin-right:20px">
+    <h6>
+      <strong style="font-size:15px" >
+        운동 종목 :  <%= @show.sports %><br><br>
+        지역 : <%= @show.region %><br><br>
+        날짜 : <%= @show.date %><br><br>
+        시간 : <%= @show.stime %> ~ <%= @show.etime %><hr style="margin-right:20px">
+
+    </div>
+    </p>
+    <div style="padding-left:20px"><h5><%= @show.content.html_safe %></h5></div>
+      </strong><br>
+    </h6>
+    <br>
+  </div>
+<br>
+<span style="float:right">
+<a href="/questions"><button class="button">글 목록</button></a>
+<% if current_user.id == @show.user_id %> <!-- 자신의 글이면 수정,삭제 기능 추가 -->
+  <a href="/edit/<%= @show.id %>"><button type="button" class="button">수정</button></a> <!-- Routes의 /edit/:postid 액션으로 전달 -->
+  <a href="/destroy/<%= @show.id %>" data-confirm="정말 삭제하시겠습니까?"><button type="button" class="button">삭제</button></a> <!-- Routes의 /destroy/:postid 액션으로 전달 -->
+<% end %>
+</span><br><br>
+<hr>
+  <div class="container" style="border:1px solid #e8e5e5; background-color:white;">
+  
+    <div style="padding-left:10px"><h2>신청 목록</h2><hr style="margin-top:10px; margin-bottom:10px">
+        <% @comments.each do |c| %>
+          <strong style="display:inline; font-size:17px"><%= c.writer %></strong> &nbsp;&nbsp;
+          <h5 style="display:inline; color:grey"><%= "#{time_ago_in_words(c.created_at)} 전" %>&nbsp;&nbsp;          
+          <% if current_user.name == c.writer %>
+            <a href="/show/<%= @show.id %>/comments/destroy/<%= c.id %>" data-method='post' data-confirm="댓글을 삭제합니다." style="a:link" >삭제</a>
+          <% end %>
+          </h5> 
+          <h5> <%= c.content %>   </h5>
+          <hr style="margin-top:10px; margin-bottom:10px">
+        <% end %>
+    </div>
+
+    <br>
+  </div>
+  <br>
+<h4><strong>신청글</strong></h4>
+<form action="/show/<%= @show.id %>/comments/create" method='post'  style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px ">
+  <input type='text' class="form-control" name='input_comment' style="display:inline; "><br><br>
+  <button type="submit" style="float:right; " class="button" >쓰기</button><br><br>
+</form>
+<hr>
+
+
+
+
+</div>
+
+</html>

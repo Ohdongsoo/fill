@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <style>
+
+    </style>
+  </head>
+  <body>
+  <div class="container">
+  <div>
+      <center>
+        <h2>운동 게시판</h2>
+        <div style="padding-bottom:20px; width:100%">
+           <input type="text" class="form-control" placeholder="Search" style="width:70%; display:inline;">
+           <button type="submit" class="button">검색</button>
+        </div>
+      </center>
+    <!-- new.html.erb에 새 글 쓰는 양식을 생성 -->
+    <table class="table" style="background-color:#ffffff; border:1px solid #e8e5e5; text-align:center;">
+      <thead>
+      <tr>
+        <th style="width:17%;background-color:#EAEAEA"><center>종목</center></th>
+        <th style="width:19%; background-color:#EAEAEA"><center>작성</center></th>
+        <th style="width:15%; background-color:#EAEAEA"><center>지역</center></th>
+        <th style="width:15%; background-color:#EAEAEA"><center>날짜</center></th>
+        <th style="width:13%; background-color:#EAEAEA"><center>시간</center></th>
+        <th style="width:21%; background-color:#EAEAEA;"><center>신청</center></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @posts.each do |post| %>
+        <!-- @posts=Post.all이다. 전체 테이블의 각 줄을 post로 지정 -->
+        <!-- do와 end사이의 코드는 테이블 첫째 줄부터 마지막 줄까지 반복 -->
+        <tr>
+          <td><center><%= post.sports %></center></td>
+          <td><center><%= post.user.name %></center></td>
+          <td><center><%= post.region %></center></td>
+          <td><center><%= post.date %></center></td>
+          <td><center><%= post.stime %></center></td>
+          <td style="padding:0px;"><center><a href="/show/<%= post.id %>" style="color:black"><button type="button" class="blue-button">신청</button></a></center></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    
+    <div style="float:right; margin-bottom:20px;">   
+      <a href="/new"><button class="button">글쓰기</button></a>
+    </div>
+    <br><br>
+    <div style="float:center; padding-left:60px;">
+      <center><%= will_paginate @posts, :previous_label => '이전', :next_label => '다음' %></center>
+    
+    </div>
+</body>
+</div>
+
+</html>
+

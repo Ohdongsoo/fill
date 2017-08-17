@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <style>
+              label{
+                font-size:15px;
+              }
+              body{
+                font-family:arial;
+              }
+        </style>
+    </head>
+    <body>
+        <br>
+         <div class="container">
+              <form action="/update/<%= @editpost.id %>" method="post">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">제목</label>
+                    <input type="text" class="form-control" name="post_title" value="<%= @editpost.title %>">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">운동 종목</label>
+                    <input type="text" class="form-control" name="post_sports" value="<%= @editpost.sports %>">
+                  </div>
+                  
+                   <div class="form-group">
+                    <label for="exampleInputEmail1">지역</label>
+                    <input type="text" class="form-control" name="post_region" value="<%= @editpost.region %>">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">날짜</label>
+                    <input type="text" class="form-control" name="post_date" value="<%= @editpost.date %>">
+                  </div>
+        
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">시간</label><br>
+                    <input type="time" style="display:inline;" class="form-control" name="post_stime" value="<%= @editpost.stime %>" > ~ <input type="time"  style="display:inline;" class="form-control" name="post_etime" value="<%= @editpost.etime %>">
+                  </div>
+                  
+                  <div class="form-group">
+                    <%= tinymce %>
+                    <label for="exampleInputcontent">추가 내용</label>
+                    <textarea class="form-control tinymce" name="post_content" rows="20"><%= @editpost.content %></textarea>
+                  </div>
+                  
+                  <button type="submit" style="float:right" class="button">수정</button>
+                  <a href="/questions"><button style="float:right" class="button">뒤로</button></a>
+
+              </form>
+            </div>
+            
+         <!--   <br>-->
+         <!--<div class="container">-->
+         <!--     <= form_tag(controller: :update , action: :editpost.id), method => "post" do %>        -->
+         <!--       <div class="form-group">-->
+         <!--        <div class="form-group">-->
+         <!--           <label for="exampleInputEmail1">제목</label>-->
+         <!--           <%= text_field_tag 'post_title',  @editpost.title , class: "form-control", placeholder:"제목을 입력해주세요." %> <!-- 2번째는 value -->
+         <!--            제목 작성 후 '저장하는 기능'으로 넘길 때, 작성한 제목을 post_title에 저장해서 넘긴다. -->
+         <!--         </div>-->
+                
+         <!--         <div class="form-group">-->
+         <!--           <label for="exampleInputEmail1">운동 종목</label>-->
+         <!--           <%= text_field_tag 'post_sports', @editpost.sports, class: "form-control", placeholder: "운동 종목을 입력해주세요." %> <!-- 2번째는 value -->
+         <!--            제목 작성 후 '저장하는 기능'으로 넘길 때, 작성한 제목을 post_title에 저장해서 넘긴다. -->
+         <!--         </div>-->
+                  
+         <!--         <div class="form-group">-->
+         <!--           <label for="exampleInputEmail1">지역</label>-->
+         <!--           <%= text_field_tag 'post_region', @editpost.region , class: "form-control", placeholder: "예) OO도 OO시 OO동" %> <!-- 2번째는 value -->
+         <!--            제목 작성 후 '저장하는 기능'으로 넘길 때, 작성한 제목을 post_title에 저장해서 넘긴다. -->
+         <!--         </div>-->
+                  
+         <!--         <div class="form-group">-->
+         <!--           <label for="exampleInputEmail1">날짜</label>-->
+         <!--           <%= text_field_tag 'post_date',  @editpost.date, class: "form-control", placeholder: "예) OOOO년-OO월-OO일" %> <!-- 2번째는 value -->
+         <!--            제목 작성 후 '저장하는 기능'으로 넘길 때, 작성한 제목을 post_title에 저장해서 넘긴다. -->
+         <!--         </div>-->
+                  
+         <!--         <div class="form-group">-->
+         <!--           <label for="exampleInputEmail1">시간</label>-->
+         <!--           <%= text_field_tag 'post_time', @editpost.stime, class: "form-control", placeholder: "예) OO시-OO시" %> -->
+         <!--            제목 작성 후 '저장하는 기능'으로 넘길 때, 작성한 제목을 post_title에 저장해서 넘긴다. -->
+         <!--         </div>-->
+                  
+         <!--         <div class="form-group">-->
+         <!--           <%= tinymce %>-->
+         <!--           <label for="exampleInputcontent">추가 내용</label>-->
+         <!--           <%= text_area_tag 'post_content', @editpost.content, class: "form-control tinymce", rows:30, placeholder: "추가할 정보를 입력해주세요. 예)핸드폰 번호, 경기장 이름 등" %> -->
+         <!--            내용을 작성한 뒤 '저장하는 기능'으로 넘길 때, 작성한 내용을 post_content에 저장해서 넘긴다. -->
+         <!--         </div>-->
+                  
+         <!--         <%= submit_tag '쓰기', class: "btn btn-default" %>-->
+         <!--         <a href="/index" class="btn btn-default">취소</a>-->
+         <!--     < end %>-->
+         <!-- </div>-->
+ </body>
+ </html>

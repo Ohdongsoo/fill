@@ -1,0 +1,16 @@
+<div class="container">
+        <center><h2>사용자 목록</h2></center>
+
+    <hr>
+    <div class="row">
+    <% @users.each do |u| %>
+    <div class="col-md-3">
+        이름: <%= u.name %><br>
+        지역: <%= u.reg %><br>
+        E-mail: <%= u.email %><br>
+        작성 글 개수: <%= u.posts.length %>
+        <hr>
+    </div>
+    <% end %>
+    </div>
+</div>

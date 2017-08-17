@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <style>
+      a:link{color:grey;}
+      
+    </style>
+  </head>
+<div class=container>
+<h1>자유 게시판</h1><hr>
+  <div class="container" style="border:1px solid #e8e5e5; background-color:white;">
+  
+    <p style="">
+    <div class="container">
+      <div>    
+        <h2 style="margin-top:0px;"><%= @show.title %></h2>
+        <h5 style="color:grey; padding-right:20px" align="right"><%= @show.user.name %>&nbsp;&nbsp;&nbsp;<%= "#{time_ago_in_words(@show.created_at)} 전" %>&nbsp;&nbsp;&nbsp; <%= "#{@show.unique_impression_count}명 읽음" %>&nbsp;&nbsp;&nbsp;            
+        <%= @show.likes.size %> 명이 좋아합니다.
+        </h5>
+        <hr style="margin-right:20px">
+      </div>
+    <h6>
+      <strong style="font-size:15px" >
+      <div><%= @show.content.html_safe %></div>
+      </strong><br>
+    </h6>
+   </p>
+
+    <br>
+  </div>
+  </div>
+<br>
+<span style="float:right">
+<a href="/free/index"><button class="button">글 목록</button></a>
+<% if current_user.id == @show.user_id %> <!-- 자신의 글이면 수정,삭제 기능 추가 -->
+  <a href="/free/edit/<%= @show.id %>"><button type="button" class="button">수정</button></a> <!-- Routes의 /edit/:postid 액션으로 전달 -->
+  <a href="/free/destroy/<%= @show.id %>" data-confirm="정말 삭제하시겠습니까?"><button type="button" class="button">삭제</button></a> <!-- Routes의 /destroy/:postid 액션으로 전달 -->
+<% end %>
+</span><br><br>
+<hr>
+
+ <div class="container" style="border:1px solid #e8e5e5; background-color:white;">
+  
+    <div style="padding-left:10px"><h2>댓글 목록</h2><hr style="margin-top:10px; margin-bottom:10px">
+        <% @show.free_comments.each do |c| %>
+          <strong style="display:inline; font-size:17px"><%= c.user.name %></strong> &nbsp;&nbsp;
+          <h5 style="display:inline; color:grey"><%= "#{time_ago_in_words(c.created_at)} 전" %>&nbsp;&nbsp;          
+          <% if current_user.name == c.user.name %>
+            <%= link_to "삭제", freepost_free_comment_path(@show, c), method: "delete" %>
+          <% end %>
+          </h5> 
+          <h5> <%= c.content %>   </h5>
+          <hr style="margin-top:10px; margin-bottom:10px">
+        <% end %>
+    </div>
+
+    <br>
+  </div>
+  <br>
+<h4><strong>댓글 쓰기</strong></h4>
+<%= form_tag freepost_free_comments_path(@show) do %>
+  <input type='text' class="form-control" name='input_comment' style="display:inline; "><br><br>
+  <button type="submit" style="float:right; " class="button" >쓰기</button><br><br>
+<% end %>
+
+<hr>

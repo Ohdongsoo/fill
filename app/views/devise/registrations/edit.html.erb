@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <style>
+
+      label{
+        font-size:15px;
+      }
+      body{
+        font-family:arial;
+
+      }     
+    </style>
+  </head>
+</html>
+<div class="container">
+  <div class="col-md-4 col-md-offset-4">
+
+    <center><h2>회원정보 수정</h2></center>
+
+    <br>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+    
+        <div class="field">
+          <%= f.label "이메일 주소" %><br />
+          <pre><%= current_user.email %></pre>
+        </div>
+        <br>
+    
+        <div class="field">
+          <%= f.label "이름" %><br />
+          <pre><%= current_user.name %></pre>
+        </div>
+        <br>
+      
+    
+        <div class="field">
+          <%= f.label "생년월일" %><br />
+          <%= f.date_field :birth, autofocus: true, class: "form-control", value: current_user.birth %>
+        </div>
+        <br>
+    
+        
+        <div class="field">
+          <%= f.label "연락처" %><br />
+          <%= f.text_field :phone,  class: "form-control", value: current_user.phone %>
+        </div>
+        <br>
+            
+        <div class="field">
+          <%= f.label "지역" %><br />
+          <%= f.text_field :reg,  class: "form-control", value: current_user.reg %>
+        </div>
+        <br>
+    
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+    
+      <div class="field">
+        <%= f.label "현재 비밀번호" %> <p style="color:grey; margin:0px;">(현재 비밀번호를 입력하셔야 수정가능합니다.)</p>
+        <%= f.password_field :current_password, autocomplete: "off",  class: "form-control" %>
+      </div>
+        <br>
+    
+      <div class="field">
+        <%= f.label "비밀번호 변경" %> <p style="color:grey; margin:0px;">(변경할 비밀번호를 입력해주세요.)</p>
+        <%= f.password_field :password, autocomplete: "off",  class: "form-control" %>
+        <% if @minimum_password_length %>
+          <p style="color:grey; margin:0px;"><%= @minimum_password_length %>자리 이상 입력해주세요.</p>
+        <% end %>
+      </div>
+        <br>
+    
+      <div class="field">
+        <%= f.label "비밀번호 확인" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off",  class: "form-control" %>
+      </div>
+        <br>
+    
+      <br>
+      <div class="actions">
+        <center><%= f.submit "수정", class: "btn", style: "background-color: #3e7fe8; color:white;" %>
+        <a href="/index"><button class="btn" style="background-color: #3e7fe8; color:white;">취소</button></a> </center>   
+      </div><br>
+    <% end %>
+    
+    <center><%= button_to "회원탈퇴", registration_path(resource_name), data: { confirm: "정말 탈퇴하시겠습니까?" }, method: :delete, class: "btn", style:"background-color: #3e7fe8; color:white;" %></center><br>
+    <br>
+  </div>
+</div>
