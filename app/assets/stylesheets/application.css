@@ -11,6 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
+ *= require_bootstrap.min
+ *= require_clean-blog
+ *= require_clean-blog.min
+ *= require_font-awesome.min
+ *= require_font-awesome
  */
 body {
   font-family: 'Lora', 'Times New Roman', serif;
