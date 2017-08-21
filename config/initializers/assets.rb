@@ -11,7 +11,6 @@ Rails.application.config.assets.precompile += %w( font-awesome.css )
 Rails.application.config.assets.precompile += %w( clean-blog.min.css )
 Rails.application.config.assets.precompile += %w( clean-blog.css )
 Rails.application.config.assets.precompile += %w( font-awesome.min.css )
-Rails.application.config.assets.precompile += %w( styles.css )
 Rails.application.config.assets.precompile += %w( bootstrap.min.js )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
