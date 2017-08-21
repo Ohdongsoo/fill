@@ -1,14 +1,24 @@
+<style>
+    a{
+        color:white
+    }
+</style>
 <div class="container">
-    <p><%= @mypage.name %>의 정보</p>
-    <p>E-mall: <%= @mypage.email %></p>
-    <p>지역: <%= @mypage.reg %></p>
-    <p>생년월일: <%= @mypage.birth %></p>
-    <p>tel: <%= @mypage.phone %></p>
-    <% if @mypage.id == current_user.id %>
-        <button><a href="/messages">송신함</a></button>
-        <button><a href="/indexre">수신함</a></button>
-        <button><%= link_to "정보 수정", edit_user_registration_path %></button>
-    <% else %>
-        <button><a href="/messages/new/<%= @mypage.id %>">메세지 보내기</a></button>
-    <% end %>
+    <h1><%= @mypage.name %> Page</h1><br>   
+    <div class="container" style="border:1px solid #e8e5e5; background-color:white;">
+        <h3><%= @mypage.name %></h3><hr>
+        <h4>E-mall: <%= @mypage.email %></h4><br>
+        <h4>지역: <%= @mypage.reg %></h4><br>
+        <h4>생년월일: <%= @mypage.birth %></h4><br>
+        <h4>tel: <%= @mypage.phone %></h4><br>
+        <hr>
+        <% if @mypage.id == current_user.id %>
+            <button class="button"><a href="/messages">송신함</a></button>
+            <button class="button"><a href="/indexre">수신함</a></button>
+            <button class="button"><%= link_to "정보 수정", edit_user_registration_path%></button>
+        <% else %>
+            <button class="button"><a href="/messages/new/<%= @mypage.id %>">메세지 보내기</a></button>
+        <% end %>
+        <br><br>
+    </div>
 </div>

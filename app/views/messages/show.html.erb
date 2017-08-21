@@ -1,26 +1,34 @@
 <div class="container">
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>송신자:</strong>
-  <%= @message.user.name %>
-</p>
-
-<p>
-  <strong>수신자:</strong>
-  <% @user.each do |u| %>
-    <% if u.id == @message.receiver %>
-      <%= u.name %>
-    <% end %>
-  <% end %>
-</p>
-
-<p>
-  <strong>내용:</strong>
-  <%= @message.body %>
-</p>
-
-<%= link_to 'Back', messages_path %>
-
+  <h1>메세지함</h1><br>
+  <div class="container" style="border:1px solid #e8e5e5; background-color:white;">
+  
+  <p id="notice"><%= notice %></p>
+  
+  <h4>
+    <strong>송신자:</strong>
+    <%= @message.user.name %>
+  </h4>
+  <hr>
+  
+  <h4>
+    <strong>수신자:</strong>
+    <%= User.find(@message.receiver).name %>
+  </h4>
+  <hr>
+  
+  <h5>
+    <string>작성일</string>
+    <%= @message.created_at %>
+  </h5>
+  <hr>
+  
+  <h5>
+    <strong>내용:</strong>
+    <%= @message.body %>
+  </h5>
+  <hr>
+  
+  <a href="/mypage/<%= current_user.id %>" style="font-size:16px;">My page</a>
+  <br><br>
+  </div>
 </div>

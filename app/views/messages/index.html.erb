@@ -1,33 +1,34 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1>송신함</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>송신</th>
-      <th>수신</th>
-      <th>전송 시간</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @messages.each do |message| %>
+<h1 style="text-align:center;">송신함</h1>
+<br>
+ <table class="table" style="background-color:#ffffff; border:1px solid #e8e5e5; text-align:center;">
+      <thead>
+      <tr>
+        <th style="width:30%; background-color:#EAEAEA"><center>송신</center></th>
+        <th style="width:30%; background-color:#EAEAEA"><center>수신</center></th>
+        <th style="width:20%; background-color:#EAEAEA"><center>작성일</center></th>
+        <th style="width:10%; background-color:#EAEAEA"><center>보기</center></th>
+        <th style="width:10%; background-color:#EAEAEA"><center>제거</center></th>
+      </tr>
+      </thead>
+      <tbody>
+    <% @messages.reverse.each do |message| %>
       <% if message.user.id == current_user.id  %>
         <tr>
-          <td><%= current_user.name %></td>
-          <td><%= User.find(message.receiver).name %></td>
-          <td><%= message.created_at %></td>
-          <td><%= link_to 'Show', message %></td>
-          <td><%= link_to 'Edit', edit_message_path(message) %></td>
-          <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><center><%= current_user.name %></center></td>
+          <td><center><%= User.find(message.receiver).name %></center></td>
+          <td><center><%= message.created_at %></center></td>
+          <td><center><%= link_to '보기', message %></center></td>
+          <td><center><%= link_to '제거', message, method: :delete, data: { confirm: '메세지함에서 제거하시겠습니까?' } %></center></td>
         </tr>
       <% end %>
     <% end %>
   </tbody>
 </table>
+
+<a href="/mypage/<%= current_user.id %>" style="font-size:16px; float:right">My page</a>
 
 <br>
 

@@ -3,5 +3,5 @@
     
     <%= render 'form', message: @message %>
     
-    <%= link_to 'Back', messages_path %>
+  <a href="/mypage/<%= current_user.id %>" style="font-size:16px;">My page</a>
 </div>
