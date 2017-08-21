@@ -20,10 +20,9 @@
     <link href="/assets/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <!--<link href="/assets/clean-blog.min.css" rel="stylesheet">-->
-    <!--<link href="/assets/styles.css" rel="stylesheet">-->
+    <link href="/assets/clean-blog.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles.css" rel="stylesheet" type="text/css">
 
-    <!--<link href="/assets/font-awesome.min.css" rel="stylesheet" type="text/css">-->
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -51,9 +50,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                 	  <li><a href="/questions"><h3 style="margin-top:0px; margin-bottom:0px">운동 매칭</h3></a></li>
-        		      <li><a href="/user"><h3 style="margin-top:0px; margin-bottom:0px">사용자 목록</h3></a></li>
-        		      <li><a href="/free/index"><h3 style="margin-top:0px; margin-bottom:0px">자유 게시판</h3></a></li>
+                 	  <li><a href="/questions" style="font-size:16px;">운동 목록</a></li>
+        		      <li><a href="/user" style="font-size:16px;">사용자 목록</a></li>
+        		      <li><a href="/free/index" style="font-size:16px;">자유 게시판</a></li>
         			  <li><%= link_to "#{current_user.name}님 정보 수정", edit_user_registration_path, style:"font-size:16px;" %></li>
                       <li><%= link_to '로그아웃', destroy_user_session_path, method: 'delete', style:"font-size:16px;" %></li>
                 </ul>
