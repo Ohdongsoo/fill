@@ -1,15 +1,18 @@
 <div class="container">
-        <center><h2>사용자 목록</h2></center>
-
+    <center><h2>사용자 목록</h2></center>
     <hr>
     <div class="row">
     <% @users.each do |u| %>
     <div class="col-md-3">
+        <p style="font-size:17px; margin:0px">
+        
         이름: <%= u.name %><br>
         지역: <%= u.reg %><br>
         E-mail: <%= u.email %><br>
         작성 글 개수: <%= u.posts.length %>
-        <hr>
+        </p>
+        <button class="button"><a href="/mypage/<%= u.id %>" style="color:#ffffff">정보보기</a></button>
+        <hr style="border:2px solid grey">
     </div>
     <% end %>
     </div>

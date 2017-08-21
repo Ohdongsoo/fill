@@ -1,0 +1,26 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>송신자:</strong>
+  <%= @message.user.name %>
+</p>
+
+<p>
+  <strong>수신자:</strong>
+  <% @user.each do |u| %>
+    <% if u.id == @message.receiver %>
+      <%= u.name %>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <strong>내용:</strong>
+  <%= @message.body %>
+</p>
+
+<%= link_to 'Back', messages_path %>
+
+</div>

@@ -8,6 +8,10 @@ class PostController < ApplicationController
         @hit_post.impressions.create(ip_address: request.remote_ip,user_id:current_user.id)
     end
     
+    def mypage
+       @mypage = User.find(params[:user_id])
+    end
+    
     def user
        @users = User.all
        @posts_count = current_user.posts.length # 사용자가 작성한 모든 글 가져오기

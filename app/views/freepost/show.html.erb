@@ -44,7 +44,7 @@
         <% @show.free_comments.each do |c| %>
           <strong style="display:inline; font-size:17px"><%= c.user.name %></strong> &nbsp;&nbsp;
           <h5 style="display:inline; color:grey"><%= "#{time_ago_in_words(c.created_at)} 전" %>&nbsp;&nbsp;          
-          <% if current_user.name == c.user.name %>
+          <% if current_user.id == c.user.id %>
             <%= link_to "삭제", freepost_free_comment_path(@show, c), method: "delete" %>
           <% end %>
           </h5> 

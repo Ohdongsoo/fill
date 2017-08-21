@@ -45,7 +45,7 @@
         <% @comments.each do |c| %>
           <strong style="display:inline; font-size:17px"><%= c.writer %></strong> &nbsp;&nbsp;
           <h5 style="display:inline; color:grey"><%= "#{time_ago_in_words(c.created_at)} 전" %>&nbsp;&nbsp;          
-          <% if current_user.name == c.writer %>
+          <% if current_user.id == c.id %>
             <a href="/show/<%= @show.id %>/comments/destroy/<%= c.id %>" data-method='post' data-confirm="댓글을 삭제합니다." style="a:link" >삭제</a>
           <% end %>
           </h5> 

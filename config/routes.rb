@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :messages
+  
+  get "/messages/new/:user_id" => 'messages#new'
+  get "/indexre" => 'messages#indexre'
   devise_for :users
   root 'post#index'
   
@@ -10,7 +14,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   post '/create' => 'post#create'
-  
+  get '/mypage/:user_id' => 'post#mypage'
   get '/destroy/:postid' => 'post#destroy'
   
   get '/edit/:postid' => 'post#edit'

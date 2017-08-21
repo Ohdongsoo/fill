@@ -18,7 +18,7 @@
     <table class="table" style="background-color:#ffffff; border:1px solid #e8e5e5; text-align:center;">
       <thead>
       <tr>
-        <th style="width:60%;background-color:#EAEAEA"><p style="margin:0;">제목</p></th>
+        <th style="width:60%; background-color:#EAEAEA"><p style="margin:0;">제목</p></th>
         <th style="width:10%; background-color:#EAEAEA"><center>작성자</center></th>
         <th style="width:10%; background-color:#EAEAEA"><center>작성일</center></th>
         <th style="width:10%; background-color:#EAEAEA"><center>조회 수</center></th>
@@ -30,9 +30,9 @@
         <!-- @posts=Post.all이다. 전체 테이블의 각 줄을 post로 지정 -->
         <!-- do와 end사이의 코드는 테이블 첫째 줄부터 마지막 줄까지 반복 -->
         <tr>
-          <td style="float:left; font-family:italic; font-size:15px"><a href="/free/show/<%= post.id %>"><%= post.title %></a></td>
+          <td style="font-family:italic; font-size:15px"><center><a href="/free/show/<%= post.id %>" style="float:left"><%= post.title %></a></center></td>
           <td><center><%= post.user.name %></center></td>
-          <td><center><%="#{time_ago_in_words(post.created_at)}전"%></center></td>
+          <td><center><%="#{time_ago_in_words(post.created_at)} 전"%></center></td>
           <td><center><%= "#{post.unique_impression_count}" %></center></td>
           <% if current_user.is_like?(post) %>
           <td><center><a data-method="post" href="/freeposts/<%= post.id %>/like">좋아요 취소</a></center></td>

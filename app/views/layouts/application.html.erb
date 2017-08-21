@@ -66,7 +66,7 @@
                  	  <li><a href="/questions" style="font-size:16px;">운동 목록</a></li>
         		      <li><a href="/user" style="font-size:16px;">사용자 목록</a></li>
         		      <li><a href="/free/index" style="font-size:16px;">자유 게시판</a></li>
-        			  <li><%= link_to "#{current_user.name}님 정보 수정", edit_user_registration_path, style:"font-size:16px;" %></li>
+        			  <li><a href="/mypage/<%= current_user.id %>" style="font-size:16px;">My page</a></li>
                       <li><%= link_to '로그아웃', destroy_user_session_path, method: 'delete', style:"font-size:16px;" %></li>
                 </ul>
             </div>
