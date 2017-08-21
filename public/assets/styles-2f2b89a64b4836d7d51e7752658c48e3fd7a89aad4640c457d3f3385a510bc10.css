@@ -1,0 +1,105 @@
+
+/* CSS Document */
+
+
+
+.style-logo {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 192px;
+}
+
+.style-nav ul {
+	list-style-type: none;
+	text-align: center;
+
+}
+
+.style-nav ul li a {
+	text-decoration: none;
+	color: #2F322A;
+	text-align: center;
+	display: block;
+	text-transform: uppercase;
+}
+.style-nav ul li p a {
+	color: #2F322A;
+
+}
+.hero {
+	background-image: url(images/hero.jpg);
+	background-size: cover;
+	padding: 20px 20px 50px 20px;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+
+p {
+	font-size: 14px;
+	margin-bottom: 35px;
+}
+
+.button {
+	background-color: #4f4f54;
+	padding: 7px 10px;
+	border-radius: 10px;
+	color: #FFFFFF;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.blue-button {
+	background-color: #485366;
+	padding: 7px 10px;
+	border-radius: 10px;
+	color: #FFFFFF;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+
+}
+
+.info-box-tan {
+	background-color: #b9a88e;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.info-box-dark {
+	background-color: #2D2D35;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.footer-text {
+	font-size: 13px;
+	margin-bottom: 20px;
+}
+
+
+
+/*Desktop View*/
+
+@media (min-width: 760px){
+	
+
+	.style-nav ul li {
+		display: inline-block;
+		text-align: center;
+		list-style: none;
+	}
+	
+	.style-logo {
+		float: left;
+	}
+	
+	.style-nav {
+		float: right;
+	}
+	
+
+}
+
